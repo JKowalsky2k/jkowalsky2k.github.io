@@ -1,5 +1,2 @@
-Here you can say lots of fun things about your site.
-
-Maybe say a some things about yourself.
-
-Or maybe what you plan to blog about.
+Hey, Hi, Hello,
+I’m a Threat Hunter passionate about uncovering attacker behavior through data. I specialize in KQL and Microsoft security tools, and this blog is where I share my observations on threat hunting.
