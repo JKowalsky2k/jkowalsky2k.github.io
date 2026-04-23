@@ -1,6 +1,6 @@
 ## Custom function to calculate Shannon entropy of string value
 
-```kql
+```kusto
 DeviceFileEvents
 | extend FileNameOnly = tostring(split(FileName, '.')[0])
 | serialize RowId = row_number()
