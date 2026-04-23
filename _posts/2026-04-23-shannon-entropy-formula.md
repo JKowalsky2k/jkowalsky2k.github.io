@@ -8,7 +8,6 @@ DeviceFileEvents
 | extend idxs = range(0, Length - 1, 1)
 | mv-expand idx = idxs to typeof(int)
 | extend Char = substring(FileNameOnly, idx, 1)
-| extend Length = strlen(FileNameOnly)
 | summarize CharCount = count() by RowId, FileNameOnly, Char, Length
 | extend p = todouble(CharCount) / todouble(Length)
 | extend EntropyComponent = -1 * p * log2(p)
