@@ -1,4 +1,4 @@
-## Custom function to calculate Shannon entropy of string value
+## Calculation Shannon entropy of string value
 
 ```kusto
 DeviceFileEvents
