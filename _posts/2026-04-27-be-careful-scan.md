@@ -1,6 +1,6 @@
 ## Be careful with scan function
 
-Scan is powerfull tool which helps you detects chains/patters in series of events. But recently I discovered that not is easy to skip valuable data using it. Lets consider below query (taken from documentation and modified a little bit):
+Scan is powerfull tool which helps you detects chains/patterns in series of events. But recently, I discovered that is easy to skip valuable data using it. Lets consider below query (example taken from documentation and modified a little bit):
 | Variable | Description      |
 |----------|------------------|
 | m_id     | Shows Pattern Id |
@@ -76,7 +76,7 @@ Results:
 | 00:12:00 | Stop  | stop b  | 3    | 1    |
 
 # Why I am writing about it?
-Recently I discovered this issue while I was working with sliding_window_counts plugin. I wanted to detects a lot of files created in folder in small time window. Then I was trying to limit date with threshold but in result I had several events above threshold realted with same folder but slightly different files count. It looked like Gauss Distribution (it was expected) but as I decribed above scan mached all those events in Step 1 but Step 2 saw only last event which not was with largest file count in folder. Copilot devoploed below code snippett but finally I used join instead of scan.
+Recently, I discovered an issue while working with the `sliding_window_counts` plugin. I wanted to detect a large number of files created in a folder within a small time window. I tried to limit the detection using a threshold, but in the results I observed several events above the threshold related to the same folder, each with slightly different file counts. It looked like a Gaussian distribution, which was expected. As described above, Step 1 matched all of these events, but Step 2 detected only the last event, which did not have the largest file count for the folder. Copilot initially developed a code snippet to implement in `scan`, but I eventually used join instead for the blog post, as this was technically more correct.
 ```kql
 | scan with_match_id=FID declare (
     Step: int,
