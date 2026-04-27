@@ -76,7 +76,7 @@ Results:
 | 00:12:00 | Stop  | stop b  | 3    | 1    |
 
 # Why I am writing about it?
-Recently, I discovered an issue while working with the `sliding_window_counts` plugin. I wanted to detect a large number of files created in a folder within a small time window. I tried to limit the detection using a threshold, but in the results I observed several events above the threshold related to the same folder, each with slightly different file counts. It looked like a Gaussian distribution, which was expected. As described above, Step 1 matched all of these events, but Step 2 detected only the last event, which did not have the largest file count for the folder. Copilot initially developed a code snippet to implement in `scan`, but I eventually used join instead for the blog post, as this was technically more correct.
+Recently, I discovered an issue while working with the `sliding_window_counts` plugin. I wanted to detect a large number of files created in a folder within a small time window. I tried to limit the detection using a threshold, but in the results I observed several events above the threshold related to the same folder, each with slightly different file counts. It looked like a Gaussian distribution, which was expected. As described above, Step 1 matched all of these events, but Step 2 detected only the last event, which did not have the largest file count for the folder. Copilot initially developed a code snippet to implement in `scan`, but I finally used join instead, as this was technically more correct.
 ```kql
 | scan with_match_id=FID declare (
     Step: int,
